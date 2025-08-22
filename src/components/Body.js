@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Loading from "./Loading";
+import QuestionCard from "./QuestionCard";
 
 const Body = () => {
 
@@ -28,11 +29,12 @@ const Body = () => {
     return (
         <div className="h-screen">
             {
-                loading ? <Loading /> : <ul>
+                loading ? <Loading /> : 
+                <div className="border border-[#D3D3D3] rounded-t-sm rounded-b-sm w-3xl m-auto flex flex-col">
                     {questions.map(question => (
-                        <li key={question.question_id}>{question.title}</li>
+                        <QuestionCard question={question} key={question.question_id} />
                     ))}
-                </ul>
+                </div>
             }
         </div>
     );
